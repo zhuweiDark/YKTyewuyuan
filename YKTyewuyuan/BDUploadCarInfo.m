@@ -48,11 +48,17 @@
         NSString * passwdStr = [[NSUserDefaults standardUserDefaults] objectForKey:UserPasswdTxt];
         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         
+        NSData * dataD = [carInfo.carPai dataUsingEncoding:encode];
+        
+        NSString *carParStr = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                     length:[dataD length]
+                                                   encoding:encode];
+
         NSDictionary * dicReq = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"SyncCarInfo",@"Action",
                              username,@"UserName",
                              passwdStr,@"Key",
-                             carInfo.carPai,@"carnum",
+                             carParStr,@"carnum",
                              carInfo.carType,@"cartype",
                              carInfo.carInsideType,@"carbox",
                              carInfo.sheng,@"szsheng",
@@ -239,17 +245,28 @@
     NSString * username = [[NSUserDefaults standardUserDefaults] objectForKey:USerNameTxt];
     NSString * passwdStr = [[NSUserDefaults standardUserDefaults] objectForKey:UserPasswdTxt];
     unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSData * dataD = [carInfo.name dataUsingEncoding:encode];
     
+    NSString *carName = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                  length:[dataD length]
+                                                encoding:encode];
+
+    dataD = [carInfo.carPai dataUsingEncoding:encode];
+    
+    NSString *carParStr = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                 length:[dataD length]
+                                               encoding:encode];
+
     NSDictionary * dicReq = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"SyncCarInfo",@"Action",
                              username,@"UserName",
                              passwdStr,@"Key",
-                             carInfo.name,@"name",
+                             carName,@"name",
                              carInfo.iphoneNum,@"tel",
                              carInfo.idcard,@"idcard",
                              carInfo.youka,@"youka",
                              [NSString stringWithFormat:@"%d",carInfo.guanggao],@"guanggao",
-                             carInfo.carPai,@"carnum",
+                             carParStr,@"carnum",
                              carInfo.carType,@"cartype",
                              carInfo.carInsideType,@"carbox",
                              carInfo.sheng,@"szsheng",
