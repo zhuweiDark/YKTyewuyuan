@@ -84,7 +84,7 @@
     }
     NSAssert(![_city isEqualToString:@"0"], @"城市数据有问题");
 
-    return _city;
+    return _city;  
 }
 
 + (NSString *) getPicName:(NSString * )carPai

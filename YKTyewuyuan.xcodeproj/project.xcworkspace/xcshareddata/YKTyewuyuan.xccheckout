@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>59E48273-DB68-4861-8DF9-A4981FD9E9C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YKTyewuyuan</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>27DCD6DDD17567970C7E1F1ECB37D21B0BE9E86E</key>
+		<string>https://github.com/zhuweiDark/YKTyewuyuan.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YKTyewuyuan.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>27DCD6DDD17567970C7E1F1ECB37D21B0BE9E86E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zhuweiDark/YKTyewuyuan.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>27DCD6DDD17567970C7E1F1ECB37D21B0BE9E86E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>27DCD6DDD17567970C7E1F1ECB37D21B0BE9E86E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YKTyewuyuan</string>
+		</dict>
+	</array>
+</dict>
+</plist>
