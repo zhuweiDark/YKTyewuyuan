@@ -329,22 +329,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YKTyewuyuan/addCarView.m"
-            timestampString = "433759781.403723"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "808"
-            endingLineNumber = "808"
-            landmarkName = "-clickDoneButton"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "YKTyewuyuan/BDCarTableView.m"
             timestampString = "443695751.310649"
             startingColumnNumber = "9223372036854775807"
@@ -481,36 +465,6 @@
             endingLineNumber = "77"
             landmarkName = "+uploadCarOnCompletion:onError:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[BDUploadCarInfo uploadCarOnCompletion:onError:]"
-                  moduleName = "YKTyewuyuan"
-                  urlString = "file:///Users/zhuwei/Documents/TempFile/YKTyewuyuan/YKTyewuyuan/BDUploadCarInfo.m"
-                  timestampString = "450670727.784671"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "3578">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[BDUploadCarInfo uploadCarOnCompletion:onError:]"
-                  moduleName = "YKTyewuyuan"
-                  urlString = "file:///Users/zhuwei/Documents/TempFile/YKTyewuyuan/YKTyewuyuan/BDUploadCarInfo.m"
-                  timestampString = "450670727.784831"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "4134">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -526,6 +480,22 @@
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "+uploadCarOnCompletion:onError:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YKTyewuyuan/BDCarInfo.m"
+            timestampString = "452760849.445547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "+getPicName:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
