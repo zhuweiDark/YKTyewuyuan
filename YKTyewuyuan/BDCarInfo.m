@@ -91,13 +91,6 @@
 {
     NSString * strname = [[NSUserDefaults standardUserDefaults] objectForKey:@"USerNameTxt"];
     NSString * carpaiNum = carPai;
-    unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-
-    NSData * dataD = [carpaiNum dataUsingEncoding:encode];
-    
-    NSString *carParStr = [[NSString alloc] initWithBytes:[dataD bytes]
-                                                   length:[dataD length]
-                                                 encoding:encode];
 
     NSDate  * date = [NSDate date];
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
@@ -107,7 +100,7 @@
 
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     NSString * strDate = [formatter stringFromDate:date];
-    NSString * picName = [NSString stringWithFormat:@"%@_%@_%@.jpg",strname,carParStr,strDate];
+    NSString * picName = [NSString stringWithFormat:@"%@_%@_%@.jpg",strname,carpaiNum,strDate];
     return picName;
 }
 

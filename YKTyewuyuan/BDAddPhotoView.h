@@ -15,9 +15,10 @@
     UILabel * titleLabel;
     UIView  * _titleView;
     UITableView * _mainTableView;
+    UIImagePickerController *imagePickerController;
 }
 
 @property (nonatomic,strong)NSString * title;
 @property (nonatomic,strong)NSMutableArray * list;
-@property (nonatomic,strong)id<BDAddPhotoViewDelegate>adelegate;
+@property (nonatomic,weak)id<BDAddPhotoViewDelegate>adelegate;
 @end

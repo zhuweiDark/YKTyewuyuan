@@ -32,7 +32,7 @@
 }
 - (void)setTitle:(NSString *)title
 {
-    _title = title;
+    _title = title ;
     titleLabel.text = _title;
     BDUserDB * db = [BDUserDB shareInstance];
     BDCarInfo * carInfo  = [db findWithCarPai:_title];
@@ -227,15 +227,14 @@
             }
         }
         // 跳转到相机或相册页面
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.delegate = self;
         imagePickerController.allowsEditing = YES;
         
         imagePickerController.sourceType = sourceType;
         
         UIViewController * rootViewCTR = ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
-        [rootViewCTR presentViewController:imagePickerController animated:YES completion:^{
-        }];
+        [rootViewCTR presentModalViewController:imagePickerController animated:YES];
     }
 }
 
@@ -243,9 +242,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-    [picker dismissViewControllerAnimated:YES completion:^{
-
-    }];
+    [picker dismissModalViewControllerAnimated:YES];
 
     [self setShowStatusBar];
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
@@ -255,9 +252,12 @@
     
     NSString * picName = [BDCarInfo getPicName:self.title];
 	NSString * strPath = [picName picNamePath];
-    
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
     [imageData writeToFile:strPath
                 atomically:YES];
+
+//    });
     [self.list addObject:picName];
     
     
@@ -270,9 +270,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
 
-    [picker dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [picker dismissModalViewControllerAnimated:YES];
 
     [self setShowStatusBar];
 }
@@ -295,6 +293,13 @@
     
 }
 
+- (void)dealloc
+{
+    _mainTableView.delegate = nil;
+    _mainTableView.dataSource = nil;
+    imagePickerController.delegate = nil;
+    [self.list removeAllObjects];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

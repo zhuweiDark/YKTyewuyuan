@@ -52,27 +52,37 @@
 
 - (NSString*) urlEncodedString {
     
-
-    CFStringRef encodedCFString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                          (__bridge CFStringRef) self,
-                                                                          nil,
-                                                                          CFSTR("?!@#$^&%*+,:;='\"`<>()[]{}/\\| "),
-                                                                        kCFStringEncodingGB_18030_2000);
-    
-    /*************************************************************************/
-    //caomiao 2013-03-14 解决特殊字符转换失败问题
-    if (nil==encodedCFString)
-    {
-        NSLog(@"nil==encodedCFString");
-        return @"";
+//    CFStringRef encodedCFString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+//                                                                          (__bridge CFStringRef) self,
+//                                                                          nil,
+//                                                                          CFSTR("?!@#$^&%*+,:;='\"`<>()[]{}/\\| "),
+//                                                                        kCFStringEncodingGB_18030_2000);
+//    
+//    /*************************************************************************/
+//    //caomiao 2013-03-14 解决特殊字符转换失败问题
+//    if (nil==encodedCFString)
+//    {
+//        NSLog(@"nil==encodedCFString");
+//        return @"";
+//    }
+//    /*************************************************************************/                                                                    
+//    NSString *encodedString = [[NSString alloc] initWithString:(__bridge_transfer NSString*) encodedCFString];    
+//
+//    if(!encodedString)
+//        encodedString = @"";    
+//    
+//    return encodedString;
+    NSString * ss = self;
+    unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    if (encode == kCFStringEncodingInvalidId) {
+        return self;
     }
-    /*************************************************************************/                                                                    
-    NSString *encodedString = [[NSString alloc] initWithString:(__bridge_transfer NSString*) encodedCFString];    
-
-    if(!encodedString)
-        encodedString = @"";    
-    
-    return encodedString;
+    NSData * dataD = [ss dataUsingEncoding:encode];
+    NSString *carInsideType = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                       length:[dataD length]
+                                                     encoding:encode];
+    carInsideType = [carInsideType stringByAddingPercentEscapesUsingEncoding:encode];
+    return carInsideType;
 }
 
 - (NSString*) urlDecodedString {

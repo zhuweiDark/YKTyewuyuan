@@ -25,6 +25,7 @@
 
 #import "MKNetworkKit.h"
 
+
 @implementation NSDictionary (RequestEncoding)
 
 -(NSString*) urlEncodedKeyValueString {
@@ -32,9 +33,28 @@
   NSMutableString *string = [NSMutableString string];
   for (NSString *key in self) {
     
-    NSObject *value = [self valueForKey:key];
+    NSString *value = [self valueForKey:key];
+      
     if([value isKindOfClass:[NSString class]])
-      [string appendFormat:@"%@=%@&", [key urlEncodedString], [((NSString*)value) urlEncodedString]];
+    {
+        NSLog(@"牛逼大发了!!!!");
+
+        NSString * ss = value;//@"尼玛可能是可能";
+        unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        if (encode == kCFStringEncodingInvalidId) {
+            NSLog(@"我日你牛逼了");
+         //   return self;
+        }
+        NSData * dataD = [ss dataUsingEncoding:encode];
+        NSString *tmpValue = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                           length:[dataD length]
+                                                         encoding:encode];
+        tmpValue = [tmpValue stringByAddingPercentEscapesUsingEncoding:encode];
+        [string appendFormat:@"%@=%@&", [key urlEncodedString], tmpValue];
+
+        
+//        [string appendFormat:@"%@=%@&", [keyS urlEncodedString], [((NSString*)tmpS) urlEncodedString]];
+    }
     else
       [string appendFormat:@"%@=%@&", [key urlEncodedString], value];
   }
