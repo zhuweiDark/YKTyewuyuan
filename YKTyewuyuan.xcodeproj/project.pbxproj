@@ -985,7 +985,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
 		};
@@ -1016,7 +1016,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1036,7 +1036,8 @@
 				INFOPLIST_FILE = "YKTyewuyuan/YKTyewuyuan-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f3841d8d-d2fb-4271-bee1-8214d707fff3";
+				PROVISIONING_PROFILE = "5219a0d1-b5ad-4959-80ac-952a61f67b0d";
+				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/YKTyewuyuan/YKTyewuyuan/Reachability";
 				WRAPPER_EXTENSION = app;
@@ -1047,7 +1048,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SANSHUN LOGISTICS STOCK CO.LTD. (6K57RULK6L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SANSHUN LOGISTICS STOCK CO.LTD. (6K57RULK6L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YKTyewuyuan/YKTyewuyuan-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1058,7 +1060,8 @@
 				INFOPLIST_FILE = "YKTyewuyuan/YKTyewuyuan-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f3841d8d-d2fb-4271-bee1-8214d707fff3";
+				PROVISIONING_PROFILE = "5219a0d1-b5ad-4959-80ac-952a61f67b0d";
+				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/YKTyewuyuan/YKTyewuyuan/Reachability";
 				WRAPPER_EXTENSION = app;
