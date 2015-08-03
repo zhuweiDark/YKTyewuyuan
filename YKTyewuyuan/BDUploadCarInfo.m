@@ -48,9 +48,22 @@
         NSString * passwdStr = [[NSUserDefaults standardUserDefaults] objectForKey:UserPasswdTxt];
         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         
-        NSData * dataD = [carInfo.carPai dataUsingEncoding:encode];
+        
+       NSData * dataD = [carInfo.carPai dataUsingEncoding:encode];
         
         NSString *carParStr = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                       length:[dataD length]
+                                                     encoding:encode];
+        
+        dataD = [carInfo.carInsideType dataUsingEncoding:encode];
+        
+        NSString *carInsideType = [[NSString alloc] initWithBytes:[dataD bytes]
+                                                           length:[dataD length]
+                                                         encoding:encode];
+        
+        dataD = [carInfo.carType dataUsingEncoding:encode];
+        
+        NSString *carType = [[NSString alloc] initWithBytes:[dataD bytes]
                                                      length:[dataD length]
                                                    encoding:encode];
 
@@ -59,8 +72,8 @@
                              username,@"UserName",
                              passwdStr,@"Key",
                              carParStr,@"carnum",
-                             carInfo.carType,@"cartype",
-                             carInfo.carInsideType,@"carbox",
+                             carType,@"cartype",
+                             carInsideType,@"carbox",
                              carInfo.sheng,@"szsheng",
                              carInfo.city,@"szshi",
                              [NSString stringWithCString:[carInfo.longSize UTF8String] encoding:encode],@"chang",
@@ -270,32 +283,6 @@
                                                      encoding:encode];
     
 
-//    
-//    NSDictionary * dicReq = [NSDictionary dictionaryWithObjectsAndKeys:
-//                             @"SyncCarInfo",@"Action",
-//                             username,@"UserName",
-//                             passwdStr,@"Key",
-//                             carName,@"name",
-//                             carInfo.iphoneNum,@"tel",
-//                             carInfo.idcard,@"idcard",
-//                             carInfo.youka,@"youka",
-//                             [NSString stringWithFormat:@"%d",carInfo.guanggao],@"guanggao",
-//                             carParStr,@"carnum",
-//                             carType,@"cartype",
-//                             carInsideType,@"carbox",
-//                             carInfo.sheng,@"szsheng",
-//                             carInfo.city,@"szshi",
-//                             [NSString stringWithCString:[carInfo.longSize UTF8String] encoding:encode],@"chang",
-//                             [NSString stringWithCString:[carInfo.withSize UTF8String] encoding:encode],@"kuan",
-//                             [NSString stringWithCString:[carInfo.heightSize UTF8String] encoding:encode],@"gao",
-//                             carInfo.awalySheng,@"czsheng",
-//                             carInfo.awalyCity,@"czshi",
-//                             [NSString stringWithCString:[carInfo.weightSize UTF8String] encoding:encode],@"weight",
-//                             [NSString stringWithCString:[carInfo.volumeSize UTF8String] encoding:encode],@"volume",
-//                             [NSString stringWithCString:[carInfo.carDriveNum UTF8String] encoding:encode],@"carid",
-//                             carInfo.carCheckTime,@"cartestdate",
-//                             nil];
-//
     
     NSDictionary * dicReq = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"SyncCarInfo",@"Action",
@@ -303,24 +290,26 @@
                              passwdStr,@"Key",
                              carName,@"name",
                              carInfo.iphoneNum,@"tel",
-                             @"",@"idcard",
-                             @"",@"youka",
-                             @"0",@"guanggao",
+                             carInfo.idcard,@"idcard",
+                             carInfo.youka,@"youka",
+                             [NSString stringWithFormat:@"%ld",(long)carInfo.guanggao],@"guanggao",
                              carParStr,@"carnum",
                              carType,@"cartype",
                              carInsideType,@"carbox",
-                             @"2",@"szsheng",
-                             @"500000",@"szshi",
-                             @"1",@"chang",
-                             @"1",@"kuan",
-                             @"1",@"gao",
-                             @"2",@"czsheng",
-                             @"500000",@"czshi",
-                             @"1",@"weight",
-                             @"1",@"volume",
-                             @"",@"carid",
-                             @"",@"cartestdate",
+                             carInfo.sheng,@"szsheng",
+                             carInfo.city,@"szshi",
+                             [NSString stringWithCString:[carInfo.longSize UTF8String] encoding:encode],@"chang",
+                             [NSString stringWithCString:[carInfo.withSize UTF8String] encoding:encode],@"kuan",
+                             [NSString stringWithCString:[carInfo.heightSize UTF8String] encoding:encode],@"gao",
+                             carInfo.awalySheng,@"czsheng",
+                             carInfo.awalyCity,@"czshi",
+                             [NSString stringWithCString:[carInfo.weightSize UTF8String] encoding:encode],@"weight",
+                             [NSString stringWithCString:[carInfo.volumeSize UTF8String] encoding:encode],@"volume",
+                             [NSString stringWithCString:[carInfo.carDriveNum UTF8String] encoding:encode],@"carid",
+                             carInfo.carCheckTime,@"cartestdate",
                              nil];
+
+    
     
 
     [request loginDataAsync:@""
